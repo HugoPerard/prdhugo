@@ -28,7 +28,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ar-one-sans), Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -57,8 +57,17 @@ main {
   top: 10vh;
 
   animation: moveX var(--duration-x) linear 0s infinite alternate,
-    moveY var(--duration-y) linear 0s infinite alternate,
-    colorContainer calc(var(--duration-y) * 10) steps(10, jump-start) infinite;
+    moveY var(--duration-y) linear 0s infinite alternate;
+  animation-delay: var(--animation-start);
+}
+
+.me-color-x {
+  animation: color-x calc(var(--duration-x) * 10) steps(10, jump-start) infinite;
+  animation-delay: var(--animation-start);
+}
+
+.me-color-y {
+  animation: color-y calc(var(--duration-y) * 10) steps(10, jump-start) infinite;
   animation-delay: var(--animation-start);
 }
 
@@ -80,7 +89,7 @@ main {
   }
 }
 
-@keyframes color {
+@keyframes color-x {
   from {
     filter: hue-rotate(0deg);
   }
@@ -89,7 +98,7 @@ main {
   }
 }
 
-@keyframes colorContainer {
+@keyframes color-y {
   from {
     filter: hue-rotate(0deg);
   }

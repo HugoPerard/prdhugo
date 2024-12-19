@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamilly: {
+        sans: ["var(--font-andada-pro)"],
+        mono: ["var(--font-andada-pro)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
