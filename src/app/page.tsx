@@ -1,5 +1,8 @@
-import Image from "next/image";
 import { MeImage } from "@/components/MeImage";
+import { IconGithub } from "@/components/icons/icon-github";
+import { IconLinkedin } from "@/components/icons/icon-linkedin";
+import { IconTicketsHunt } from "@/components/icons/icon-tickets-hunt";
+import { FooterLink } from "@/components/footer-link";
 
 export default function Home() {
   return (
@@ -27,51 +30,14 @@ export default function Home() {
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/github.svg"
-            alt="Github logo icon"
-            width={16}
-            height={16}
-          />
+        <FooterLink href="https://github.com">
+          <IconGithub />
           Github
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://linkedin.com/in/hugoperard/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/linkedin.svg"
-            alt="LinkedIn logo icon"
-            width={16}
-            height={16}
-          />
+        </FooterLink>
+        <FooterLink href="https://linkedin.com/in/hugoperard/">
+          <IconLinkedin />
           LinkedIn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://whereiam.prdhugo.fr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/whereiam.svg"
-            alt="WhereIAm icon"
-            width={16}
-            height={16}
-          />
-          Where I am ?
-        </a>
+        </FooterLink>
       </footer>
     </div>
   );
