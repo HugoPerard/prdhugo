@@ -1,44 +1,57 @@
-import { MeImage } from "@/components/MeImage";
 import { IconGithub } from "@/components/icons/icon-github";
 import { IconLinkedin } from "@/components/icons/icon-linkedin";
-import { IconTicketsHunt } from "@/components/icons/icon-tickets-hunt";
-import { FooterLink } from "@/components/footer-link";
+import { Orb } from "@/components/orb";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <MeImage />
-        <div className="flex flex-col">
-          <h1>
-            Hi, I&apos;m <strong>Hugo Pérard</strong>
-          </h1>
-          <h2>Lead front developer</h2>
+    <div className="relative flex min-h-screen items-center justify-center px-6">
+      <Orb hue={220} forceHoverState={false} />
+
+      <main className="relative z-10 flex w-full max-w-md flex-col items-center text-center">
+        <div className="mb-2 text-sm font-medium tracking-widest uppercase text-white/60">
+          Lead Front Developer
         </div>
-        <div className="flex flex-col">
-          <p>In Rouen, France</p>
-          <p>
-            Working at{" "}
-            <a
-              href="https://bearstudio.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              BearStudio
-            </a>
-          </p>
+
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Hugo Pérard
+        </h1>
+
+        <div className="mt-4 flex items-center gap-2 text-sm text-white/50">
+          <span>Rouen, France</span>
+          <span aria-hidden="true">&middot;</span>
+          <a
+            href="https://bearstudio.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 transition-colors hover:text-white hover:underline"
+          >
+            BearStudio
+          </a>
+        </div>
+
+        <div className="mt-8 h-px w-12 bg-white/20" />
+
+        <div className="mt-8 flex gap-5">
+          <a
+            href="https://github.com/HugoPerard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-white/20 p-3 text-white/50 transition-colors hover:border-white/60 hover:text-white"
+            aria-label="GitHub"
+          >
+            <IconGithub className="h-5 w-5" />
+          </a>
+          <a
+            href="https://linkedin.com/in/hugoperard/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-white/20 p-3 text-white/50 transition-colors hover:border-white/60 hover:text-white"
+            aria-label="LinkedIn"
+          >
+            <IconLinkedin className="h-5 w-5" />
+          </a>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <FooterLink href="https://github.com">
-          <IconGithub />
-          Github
-        </FooterLink>
-        <FooterLink href="https://linkedin.com/in/hugoperard/">
-          <IconLinkedin />
-          LinkedIn
-        </FooterLink>
-      </footer>
     </div>
   );
 }
