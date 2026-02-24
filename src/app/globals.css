@@ -1,14 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #000000;
-  --foreground: #fafafa;
+@theme {
+  --font-sans: var(--font-ar-one-sans), system-ui, -apple-system, sans-serif;
+  --color-background: #000000;
+  --color-foreground: #fafafa;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-ar-one-sans), system-ui, -apple-system, sans-serif;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-sans);
 }
