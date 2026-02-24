@@ -3,106 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --image-height: 220px;
-  --image-width: 200px;
-
-  --duration-x-value: 2;
-  --duration-y-value: 4.5;
-
-  --duration-x: calc(var(--duration-x-value) * 1s);
-  --duration-y: calc(var(--duration-y-value) * 1s);
-
-  --animation-start: 5s;
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #2563eb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #fafafa;
+    --muted: #9ca3af;
+    --border: #27272a;
+    --accent: #3b82f6;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-ar-one-sans), Arial, Helvetica, sans-serif;
-}
-
-main {
-  a {
-    font-weight: 500;
-    text-decoration: underline;
-    text-underline-offset: 2;
-  }
-  a:hover {
-    text-underline-offset: 4;
-  }
-}
-
-.me {
-  height: var(--image-height);
-  width: var(--image-width);
-
-  animation: color calc(var(--duration-x) * 10) steps(10, jump-start) infinite;
-  animation-delay: var(--animation-start);
-}
-
-.me-container {
-  display: block;
-  position: absolute;
-  z-index: -1;
-  top: 10vh;
-
-  animation: moveX var(--duration-x) linear 0s infinite alternate,
-    moveY var(--duration-y) linear 0s infinite alternate;
-  animation-delay: var(--animation-start);
-}
-
-.me-color-x {
-  animation: color-x calc(var(--duration-x) * 10) steps(10, jump-start) infinite;
-  animation-delay: var(--animation-start);
-}
-
-.me-color-y {
-  animation: color-y calc(var(--duration-y) * 10) steps(10, jump-start) infinite;
-  animation-delay: var(--animation-start);
-}
-
-@keyframes moveX {
-  from {
-    left: env(safe-area-inset-left);
-  }
-  to {
-    left: calc(100vw - var(--image-width) - env(safe-area-inset-right));
-  }
-}
-
-@keyframes moveY {
-  from {
-    top: env(safe-area-inset-top);
-  }
-  to {
-    top: calc(100vh - var(--image-height) - env(safe-area-inset-bottom));
-  }
-}
-
-@keyframes color-x {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
-
-@keyframes color-y {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
+  font-family: var(--font-ar-one-sans), system-ui, -apple-system, sans-serif;
 }
