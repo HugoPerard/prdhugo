@@ -42,18 +42,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontVariables = `${bricolage.variable} ${sono.variable} ${pressStart2P.variable} ${vt323.variable}`;
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem("konami-video-game-mode");if(t==="true"){document.documentElement.setAttribute("data-theme","video-game")}})();`,
-          }}
-        />
-      </head>
-      <body
-        className={`${bricolage.variable} ${sono.variable} ${pressStart2P.variable} ${vt323.variable} antialiased`}
-      >
+    <html lang="en" className={fontVariables}>
+      <body className="antialiased">
         <KonamiThemeProvider>{children}</KonamiThemeProvider>
       </body>
     </html>

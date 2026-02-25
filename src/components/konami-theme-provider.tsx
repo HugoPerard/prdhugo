@@ -15,8 +15,6 @@ const KONAMI_SEQUENCE = [
   "KeyA",
 ];
 
-const STORAGE_KEY = "konami-video-game-mode";
-
 type ThemeContextValue = {
   isVideoGameMode: boolean;
   toggleVideoGameMode: () => void;
@@ -37,28 +35,16 @@ export function KonamiThemeProvider({ children }: { children: React.ReactNode })
   const [sequenceIndex, setSequenceIndex] = useState(0);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "true") {
-      queueMicrotask(() => setIsVideoGameMode(true));
-    }
-  }, []);
-
-  useEffect(() => {
     if (typeof document === "undefined") return;
-    document.documentElement.setAttribute(
-      "data-theme",
-      isVideoGameMode ? "video-game" : "default"
-    );
+    if (isVideoGameMode) {
+      document.documentElement.setAttribute("data-theme", "video-game");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
   }, [isVideoGameMode]);
 
   const toggleVideoGameMode = useCallback(() => {
-    setIsVideoGameMode((prev) => {
-      const next = !prev;
-      if (typeof window !== "undefined") {
-        localStorage.setItem(STORAGE_KEY, String(next));
-      }
-      return next;
-    });
+    setIsVideoGameMode((prev) => !prev);
   }, []);
 
   useEffect(() => {
@@ -66,13 +52,7 @@ export function KonamiThemeProvider({ children }: { children: React.ReactNode })
       const expected = KONAMI_SEQUENCE[sequenceIndex];
       if (e.code === expected) {
         if (sequenceIndex === KONAMI_SEQUENCE.length - 1) {
-          setIsVideoGameMode((prev) => {
-            const next = !prev;
-            if (typeof window !== "undefined") {
-              localStorage.setItem(STORAGE_KEY, String(next));
-            }
-            return next;
-          });
+          setIsVideoGameMode((prev) => !prev);
           setSequenceIndex(0);
         } else {
           setSequenceIndex((i) => i + 1);
