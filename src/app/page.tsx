@@ -12,7 +12,7 @@ export default function Home() {
           Lead Front Developer
         </div>
 
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
           Hugo Pérard
         </h1>
 

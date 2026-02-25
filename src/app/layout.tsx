@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { AR_One_Sans } from "next/font/google";
+import { DM_Sans, Syne } from "next/font/google";
 import "./globals.css";
 
-const arOneSans = AR_One_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-ar-one-sans",
+  variable: "--font-dm-sans",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${arOneSans.variable} antialiased`}>{children}</body>
+      <body className={`${dmSans.variable} ${syne.variable} antialiased`}>{children}</body>
     </html>
   );
 }
