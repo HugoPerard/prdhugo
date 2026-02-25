@@ -11,4 +11,38 @@ body {
   color: var(--color-foreground);
   background: var(--color-background);
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Video game theme (Konami code) */
+[data-theme="video-game"] {
+  --font-sans: var(--font-vt323), "Courier New", monospace;
+  --font-display: var(--font-press-start), "Courier New", monospace;
+  --color-background: #0d1117;
+  --color-foreground: #00ff41;
+  --color-vg-border: #00ff41;
+  --color-vg-muted: #00ff4180;
+  --color-vg-accent: #39d353;
+}
+
+[data-theme="video-game"] body {
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+[data-theme="video-game"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0 0 0 / 0.03) 2px,
+    rgba(0 0 0 / 0.03) 4px
+  );
 }

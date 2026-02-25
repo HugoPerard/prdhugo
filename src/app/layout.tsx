@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Sono } from "next/font/google";
+import { Bricolage_Grotesque, Press_Start_2P, Sono, VT323 } from "next/font/google";
+import { KonamiThemeProvider } from "@/components/konami-theme-provider";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -10,6 +11,18 @@ const bricolage = Bricolage_Grotesque({
 const sono = Sono({
   subsets: ["latin"],
   variable: "--font-sono",
+});
+
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-press-start",
+});
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
 });
 
 export const metadata: Metadata = {
@@ -30,8 +43,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${bricolage.variable} ${sono.variable} antialiased`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem("konami-video-game-mode");if(t==="true"){document.documentElement.setAttribute("data-theme","video-game")}})();`,
+          }}
+        />
+      </head>
+      <body
+        className={`${bricolage.variable} ${sono.variable} ${pressStart2P.variable} ${vt323.variable} antialiased`}
+      >
+        <KonamiThemeProvider>{children}</KonamiThemeProvider>
+      </body>
     </html>
   );
 }
