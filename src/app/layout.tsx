@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Figtree, Fraunces } from "next/font/google";
+import { Bricolage_Grotesque, Sono } from "next/font/google";
 import "./globals.css";
 
-const figtree = Figtree({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-figtree",
+  variable: "--font-bricolage",
 });
 
-const fraunces = Fraunces({
+const sono = Sono({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-sono",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figtree.variable} ${fraunces.variable} antialiased`}>{children}</body>
+      <body className={`${bricolage.variable} ${sono.variable} antialiased`}>{children}</body>
     </html>
   );
 }

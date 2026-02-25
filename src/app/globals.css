@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-figtree), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-sono), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
   --color-background: #000000;
   --color-foreground: #fafafa;
 }
