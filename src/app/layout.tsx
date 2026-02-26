@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Press_Start_2P, Sono, VT323 } from "next/font/google";
-import { KonamiThemeProvider } from "@/components/konami-theme-provider";
+import {
+  Bricolage_Grotesque,
+  Press_Start_2P,
+  Sono,
+  VT323,
+} from "next/font/google";
 import "./globals.css";
+import { Konami } from "@/features/konami";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -30,9 +35,7 @@ export const metadata: Metadata = {
   description:
     "Personal site of Hugo Pérard, lead front-end developer based in Rouen, France.",
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/favicon.svg",
   },
 };
@@ -43,11 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const fontVariables = `${bricolage.variable} ${sono.variable} ${pressStart2P.variable} ${vt323.variable}`;
+
   return (
     <html lang="en" className={fontVariables}>
-      <body className="antialiased">
-        <KonamiThemeProvider>{children}</KonamiThemeProvider>
-      </body>
+      <Konami />
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

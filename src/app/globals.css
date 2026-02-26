@@ -1,48 +1,67 @@
 @import "tailwindcss";
+@import "./arcade-theme.css";
 
 @theme {
   --font-sans: var(--font-sono), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-bricolage), system-ui, sans-serif;
   --color-background: #000000;
   --color-foreground: #fafafa;
+
+  --home-subtitle: rgb(255 255 255 / 0.6);
+  --home-title: white;
+  --home-meta: rgb(255 255 255 / 0.5);
+  --home-link: rgb(255 255 255 / 0.7);
+  --home-divider: rgb(255 255 255 / 0.2);
+  --home-icon-border: rgb(255 255 255 / 0.2);
+  --home-icon-text: rgb(255 255 255 / 0.5);
+  --home-icon-hover-border: rgb(255 255 255 / 0.6);
+  --home-icon-hover-text: white;
+  --home-icon-hover-bg: transparent;
 }
 
 body {
   color: var(--color-foreground);
   background: var(--color-background);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-/* Video game theme (Konami code) */
-[data-theme="video-game"] {
-  --font-sans: var(--font-vt323), "Courier New", monospace;
-  --font-display: var(--font-press-start), "Courier New", monospace;
-  --color-background: #0d1117;
-  --color-foreground: #00ff41;
-  --color-vg-border: #00ff41;
-  --color-vg-muted: #00ff4180;
-  --color-vg-accent: #39d353;
+/* Home content – style managed via CSS variables */
+.home-subtitle {
+  color: var(--home-subtitle);
 }
 
-[data-theme="video-game"] body {
-  color: var(--color-foreground);
-  background: var(--color-background);
-  font-family: var(--font-sans);
-  position: relative;
+.home-title {
+  color: var(--home-title);
 }
 
-[data-theme="video-game"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0 0 0 / 0.03) 2px,
-    rgba(0 0 0 / 0.03) 4px
-  );
+.home-meta {
+  color: var(--home-meta);
+}
+
+.home-link {
+  color: var(--home-link);
+}
+
+.home-link:hover {
+  color: var(--home-title);
+}
+
+.home-divider {
+  background-color: var(--home-divider);
+}
+
+.home-icon-button {
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: var(--home-icon-border);
+  color: var(--home-icon-text);
+}
+
+.home-icon-button:hover {
+  border-color: var(--home-icon-hover-border);
+  background-color: var(--home-icon-hover-bg);
+  color: var(--home-icon-hover-text);
 }
