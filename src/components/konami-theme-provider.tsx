@@ -49,6 +49,7 @@ export function KonamiThemeProvider({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.repeat) return;
       const expected = KONAMI_SEQUENCE[sequenceIndex];
       if (e.code === expected) {
         if (sequenceIndex === KONAMI_SEQUENCE.length - 1) {
@@ -62,8 +63,9 @@ export function KonamiThemeProvider({ children }: { children: React.ReactNode })
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown, { capture: true });
+    return () =>
+      window.removeEventListener("keydown", handleKeyDown, { capture: true });
   }, [sequenceIndex]);
 
   return (
