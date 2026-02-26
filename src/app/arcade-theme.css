@@ -1,0 +1,66 @@
+@custom-variant data-theme-arcade (&:where(html[data-theme="arcade"] *));
+
+/* Arcade theme (Konami code) */
+[data-theme="arcade"] {
+  --font-sans: var(--font-vt323), "Courier New", monospace;
+  --font-display: var(--font-press-start), "Courier New", monospace;
+  --color-background: #0d1117;
+  --color-foreground: #00ff41;
+  --color-accent: #00ff41;
+  --color-muted: color-mix(in srgb, var(--color-foreground) 80%, transparent);
+  --color-muted-50: color-mix(
+    in srgb,
+    var(--color-foreground) 50%,
+    transparent
+  );
+  --color-divider: color-mix(in srgb, var(--color-foreground) 40%, transparent);
+  --home-subtitle: var(--color-muted);
+  --home-title: var(--color-foreground);
+  --home-meta: var(--color-muted-50);
+  --home-link: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --home-divider: var(--color-divider);
+  --home-icon-border: color-mix(
+    in srgb,
+    var(--color-foreground) 50%,
+    transparent
+  );
+  --home-icon-text: var(--color-muted);
+  --home-icon-hover-border: var(--color-foreground);
+  --home-icon-hover-bg: color-mix(
+    in srgb,
+    var(--color-foreground) 10%,
+    transparent
+  );
+  --home-icon-hover-text: var(--color-foreground);
+}
+
+[data-theme="arcade"] body {
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+[data-theme="arcade"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0 0 0 / 0.03) 2px,
+    rgba(0 0 0 / 0.03) 4px
+  );
+}
+
+[data-theme="arcade"] .home-main {
+  font-family: var(--font-display);
+}
+
+[data-theme="arcade"] .home-icon-button {
+  border-radius: 0;
+  border-width: 2px;
+}

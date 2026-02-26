@@ -1,10 +1,33 @@
 import type { Metadata } from "next";
-import { AR_One_Sans } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Press_Start_2P,
+  Sono,
+  VT323,
+} from "next/font/google";
 import "./globals.css";
+import { Konami } from "@/features/konami";
 
-const arOneSans = AR_One_Sans({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-ar-one-sans",
+  variable: "--font-bricolage",
+});
+
+const sono = Sono({
+  subsets: ["latin"],
+  variable: "--font-sono",
+});
+
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-press-start",
+});
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
 });
 
 export const metadata: Metadata = {
@@ -12,9 +35,7 @@ export const metadata: Metadata = {
   description:
     "Personal site of Hugo Pérard, lead front-end developer based in Rouen, France.",
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/favicon.svg",
   },
 };
@@ -24,9 +45,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontVariables = `${bricolage.variable} ${sono.variable} ${pressStart2P.variable} ${vt323.variable}`;
+
   return (
-    <html lang="en">
-      <body className={`${arOneSans.variable} antialiased`}>{children}</body>
+    <html lang="en" className={fontVariables}>
+      <Konami />
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
