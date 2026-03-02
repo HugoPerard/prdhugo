@@ -2,13 +2,13 @@
 
 import { IconGithub } from "@/components/icons/icon-github";
 import { IconLinkedin } from "@/components/icons/icon-linkedin";
-import { Orb } from "@/components/orb";
+import Orb from "@/components/orb";
 
 import PixelBlast from "@/components/PixelBlast";
 
 export function HomeContent() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center px-6">
+    <div className="relative flex min-h-screen items-center justify-center px-2 overflow-hidden">
       <div className="absolute inset-0 -z-10 data-theme-arcade:invisible">
         <Orb />
       </div>
@@ -16,7 +16,7 @@ export function HomeContent() {
         <PixelBlast color="#00ff41" transparent variant="square" />
       </div>
 
-      <main className="home-main relative z-10 flex w-full max-w-md flex-col items-center text-center">
+      <main className="home-main mt-8 relative z-10 flex w-full min-w-[20rem] max-w-md flex-col items-center text-center">
         <div className="home-subtitle mb-2 text-sm font-medium tracking-widest uppercase">
           Lead Front Developer
         </div>
@@ -38,9 +38,9 @@ export function HomeContent() {
           </a>
         </div>
 
-        <div className="home-divider mt-8 h-px w-12" />
+        <div className="home-divider mt-6 sm:mt-8 hidden h-px w-12 sm:block" />
 
-        <div className="mt-8 flex gap-5">
+        <div className="mt-6 sm:mt-8 flex gap-4">
           <a
             href="https://github.com/HugoPerard"
             target="_blank"
