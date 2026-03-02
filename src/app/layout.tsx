@@ -35,9 +35,15 @@ export const metadata: Metadata = {
   description:
     "Personal site of Hugo Pérard, lead front-end developer based in Rouen, France.",
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+    ],
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
