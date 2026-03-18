@@ -31,9 +31,9 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "Hugo Pérard — Lead Front Developer",
+  title: "Images de jeux de mots",
   description:
-    "Personal site of Hugo Pérard, lead front-end developer based in Rouen, France.",
+    "Des enigmes visuelles de celebrites, avec difficulte variable et reponse masquee sur demande.",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
@@ -54,7 +54,7 @@ export default function RootLayout({
   const fontVariables = `${bricolage.variable} ${sono.variable} ${pressStart2P.variable} ${vt323.variable}`;
 
   return (
-    <html lang="en" className={fontVariables}>
+    <html lang="fr" className={fontVariables}>
       <Konami />
       <body className="antialiased">{children}</body>
     </html>

@@ -32,6 +32,54 @@
     transparent
   );
   --home-icon-hover-text: var(--color-foreground);
+  --game-panel-bg: rgb(2 12 6 / 0.82);
+  --game-panel-border: color-mix(
+    in srgb,
+    var(--color-foreground) 24%,
+    transparent
+  );
+  --game-muted: color-mix(in srgb, var(--color-foreground) 72%, transparent);
+  --game-button-bg: color-mix(
+    in srgb,
+    var(--color-foreground) 8%,
+    transparent
+  );
+  --game-button-border: color-mix(
+    in srgb,
+    var(--color-foreground) 28%,
+    transparent
+  );
+  --game-button-hover: color-mix(
+    in srgb,
+    var(--color-foreground) 14%,
+    transparent
+  );
+  --game-button-active: color-mix(
+    in srgb,
+    var(--color-foreground) 20%,
+    transparent
+  );
+  --game-input-bg: color-mix(
+    in srgb,
+    var(--color-foreground) 6%,
+    transparent
+  );
+  --game-input-border: color-mix(
+    in srgb,
+    var(--color-foreground) 24%,
+    transparent
+  );
+  --game-answer-bg: color-mix(
+    in srgb,
+    var(--color-foreground) 10%,
+    transparent
+  );
+  --game-answer-border: color-mix(
+    in srgb,
+    var(--color-foreground) 30%,
+    transparent
+  );
+  --game-dot: var(--color-foreground);
 }
 
 [data-theme="arcade"] body {
@@ -63,4 +111,13 @@
 [data-theme="arcade"] .home-icon-button {
   border-radius: 0;
   border-width: 2px;
+}
+
+[data-theme="arcade"] .game-panel,
+[data-theme="arcade"] .game-note,
+[data-theme="arcade"] .game-answer,
+[data-theme="arcade"] .game-input,
+[data-theme="arcade"] .game-button,
+[data-theme="arcade"] .game-pill {
+  border-radius: 0;
 }
